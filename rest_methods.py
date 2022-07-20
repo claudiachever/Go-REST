@@ -8,9 +8,7 @@ token= '95a03b743fd8b0968ccd1df6df1ae0d87bee1292c9fc91e917dd5b8669e4395e'
     def get(self, resource, **kwargs):
         headers = {}
         url = self.base_url + '/' + resource
-
-        if self.token:
-            headers['Authorization'] = 'Bearer ' + self.token
+        headers['Authorization'] = 'Bearer ' + self.token
 
         if 'options' in kwargs.keys():
             options = kwargs['options']
@@ -27,10 +25,8 @@ token= '95a03b743fd8b0968ccd1df6df1ae0d87bee1292c9fc91e917dd5b8669e4395e'
     def post(self, resource, data):
         headers = {}
         url = self.base_url + '/' + resource
-        if self.token:
-            headers['Authorization'] = 'Bearer ' + self.token
-        print(f'POST - {url}')
-        print(f"DATA - {data}")
+        headers['Authorization'] = 'Bearer ' + self.token
+
         response = requests.post(url, data, headers=headers)
         if response.status_code < 300:
             response = response.json()
