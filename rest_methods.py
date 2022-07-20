@@ -2,7 +2,7 @@ import requests
 
 class Rest:
 base_url= 'https://gorest.co.in'
-token= 95a03b743fd8b0968ccd1df6df1ae0d87bee1292c9fc91e917dd5b8669e4395e
+token= '95a03b743fd8b0968ccd1df6df1ae0d87bee1292c9fc91e917dd5b8669e4395e'
 
 
     def get(self, resource, **kwargs):
@@ -45,7 +45,5 @@ token= 95a03b743fd8b0968ccd1df6df1ae0d87bee1292c9fc91e917dd5b8669e4395e
         url = self.base_url + '/' + resource + '/' + str(target)
         if self.token:
             headers['Authorization'] = 'Bearer ' + self.token
-        print(f'PATCH - {url}')
-        print(f"DATA - {data}")
         response = requests.patch(url, data, headers=headers)
         return response.json()
